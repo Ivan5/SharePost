@@ -9,7 +9,8 @@ class Pages extends Controller{
   public function index(){
    
     $data = [
-      'title' => 'SharePosts'
+      'title' => 'SharePosts',
+      'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum expedita perferendis aliquam earum culpa eos consequuntur facere eaque cum cumque temporibus dolorem, doloribus sint assumenda repellendus? Distinctio molestiae earum neque?'
     ];
     
     $this->view('pages/index',$data);
@@ -17,7 +18,8 @@ class Pages extends Controller{
 
   public function about(){
     $data = [
-      'title' => 'About Us'
+      'title' => 'About Us',
+      'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum expedita perferendis aliquam earum culpa eos consequuntur facere eaque cum cumque temporibus dolorem, doloribus sint assumenda repellendus? Distinctio molestiae earum neque?'      
     ];
     $this->view('pages/about',$data);
   }
