@@ -7,7 +7,10 @@ class Pages extends Controller{
   }
 
   public function index(){
-   
+    
+    if(isLoggedIn()){
+      redirect('posts');
+    }
     $data = [
       'title' => 'SharePosts',
       'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum expedita perferendis aliquam earum culpa eos consequuntur facere eaque cum cumque temporibus dolorem, doloribus sint assumenda repellendus? Distinctio molestiae earum neque?'
