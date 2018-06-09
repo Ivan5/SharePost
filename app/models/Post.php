@@ -28,11 +28,38 @@ class Post {
     }
   }
 
+  public function updatePost($data){
+    $this->db->query('update posts set title=:title, body=:body where id=:id');
+    //Bind values
+    $this->db->bind(':id',$data['id']);
+    $this->db->bind(':title',$data['title']);
+    $this->db->bind(':body',$data['body']);
+
+    //Execute statemt
+    if($this->db->execute()){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   public function getPostById($id){
     $this->db->query('select * from posts where id = :id');
     $this->db->bind(':id',$id);
 
     $row = $this->db->single();
     return $row;
+  }
+
+  public function deletePost($id){
+    $this->db->query('delete from posts where id = :id');
+    //Bind values
+    $this->db->bind(':id',$id);
+    //Execute statemt
+    if($this->db->execute()){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
