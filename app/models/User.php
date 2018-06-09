@@ -39,6 +39,17 @@ class User {
     }
   }
 
+  public function getUserById($id){
+    //Do query to find a register with the email
+    $this->db->query('select * from users where id = :id');
+    //Bind the prepare stament
+    $this->db->bind(':id',$id);
+    //set the single query
+    $row = $this->db->single();
+    //Check row count
+    return $row;
+  }
+
   public function login($email,$password){
     $this->db->query('select * from users where email = :email');
     $this->db->bind(':email',$email);

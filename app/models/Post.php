@@ -27,4 +27,12 @@ class Post {
       return false;
     }
   }
+
+  public function getPostById($id){
+    $this->db->query('select * from posts where id = :id');
+    $this->db->bind(':id',$id);
+
+    $row = $this->db->single();
+    return $row;
+  }
 }
